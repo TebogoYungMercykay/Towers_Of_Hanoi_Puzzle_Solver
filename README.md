@@ -16,7 +16,8 @@ disk.
   - https://www.mathsisfun.com/games/towerofhanoi.htm
 ________________________________________________________________________________________
 ## UML Diagram And Functions
-<img width="849" alt="UML diagram and functions" src="[https://github.com/TebogoYungMercykay/Project-3----ALX-T--Cloud-Developer-Nanodegree-Program/blob/main/screenshots/Screenshot%20(397).png](https://github.com/TebogoYungMercykay/Towers_Of_Hanoi----Recursion_And_STL_Stacks/blob/main/UML_Diagram.png)">
+<img width="849" alt="UML diagram and functions" src="https://github.com/TebogoYungMercykay/Towers_Of_Hanoi----Recursion_And_STL_Stacks/blob/main/UML_Diagram.png">
+
 ________________________________________________________________________________________
 - ### Requirements before running code:
     - Install an IDE that compiles and runs C++ codes. Recommendation VS Code
