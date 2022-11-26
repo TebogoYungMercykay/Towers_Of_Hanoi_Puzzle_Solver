@@ -16,7 +16,7 @@ disk.
   - https://www.mathsisfun.com/games/towerofhanoi.htm
 ________________________________________________________________________________________
 ## UML Diagram And Functions
-<img width="500" alt="UML diagram and functions" src="https://github.com/TebogoYungMercykay/Towers_Of_Hanoi----Recursion_And_STL_Stacks/blob/main/UML_Diagram.png">
+<img alt="UML diagram and functions" src="https://github.com/TebogoYungMercykay/Towers_Of_Hanoi----Recursion_And_STL_Stacks/blob/main/UML_Diagram.png">
 
 ________________________________________________________________________________________
 - ### Requirements before running code:
