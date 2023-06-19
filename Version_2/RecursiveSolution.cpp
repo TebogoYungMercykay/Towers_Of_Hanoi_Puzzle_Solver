@@ -9,8 +9,7 @@ void RecursiveSolution<T>::solveGame(){
         int aux = (RecursiveSolution<T>::startTower + RecursiveSolution<T>::goalTower);
         int n = count();
         solveGame(1 ,(pow(2, n) - 1), n, (6 - aux));
-    }
-    else{
+    } else {
         throw Exception<T>::invalidGame();
     }
 }
@@ -33,24 +32,21 @@ void RecursiveSolution<T>::solveGame(int i, int min, int n, int auxiliary){
         if (i % 3 == 0){
             if (n == 0){
                 RecursiveSolution<T>::moveDisk(auxiliary, RecursiveSolution<T>::goalTower);
-            }
-            else{
+            } else {
                 RecursiveSolution<T>::moveDisk(RecursiveSolution<T>::goalTower, auxiliary);
             }
         }
         else if (i % 3 == 1){
             if (n == 0){
                 RecursiveSolution<T>::moveDisk(RecursiveSolution<T>::startTower, auxiliary);
-            }
-            else{
+            } else {
                 RecursiveSolution<T>::moveDisk(RecursiveSolution<T>::startTower, RecursiveSolution<T>::goalTower);
             }
         }
         else if (i % 3 == 2){
             if (n == 0){
                 RecursiveSolution<T>::moveDisk(RecursiveSolution<T>::startTower, RecursiveSolution<T>::goalTower);
-            }
-            else{
+            } else {
                 RecursiveSolution<T>::moveDisk(RecursiveSolution<T>::startTower, auxiliary);
             }
         }
@@ -67,16 +63,14 @@ int RecursiveSolution<T>::count(int tower){
             counter = 1 + count(1);
             TowersOfHanoi<T>::t1->push(temp);
         }
-    }
-    else if(tower == 2){
+    } else if(tower == 2){
         if (TowersOfHanoi<T>::t2->empty() == false){
             Disk<T>* temp = TowersOfHanoi<T>::t2->top();
             TowersOfHanoi<T>::t2->pop();
             counter = 1 + count(2);
             TowersOfHanoi<T>::t2->push(temp);
         }
-    }
-    else{
+    } else {
         if (TowersOfHanoi<T>::t3->empty() == false){
             Disk<T>* temp = TowersOfHanoi<T>::t3->top();
             TowersOfHanoi<T>::t3->pop();
@@ -95,8 +89,7 @@ bool RecursiveSolution<T>::containsLabelt1(T label, int tower){
             TowersOfHanoi<T>::t1->pop();
             if (temp->getLabel() == label){
                 foundLabel = true;
-            }
-            else{
+            } else {
                 foundLabel = containsLabelt1(label, 1);
             }
             TowersOfHanoi<T>::t1->push(temp);
@@ -110,8 +103,7 @@ bool RecursiveSolution<T>::containsLabelt1(T label, int tower){
             TowersOfHanoi<T>::t2->pop();
             if (temp->getLabel() == label){
                 foundLabel = true;
-            }
-            else{
+            } else {
                 foundLabel = containsLabelt1(label, 2);
             }
             TowersOfHanoi<T>::t2->push(temp);
@@ -125,8 +117,7 @@ bool RecursiveSolution<T>::containsLabelt1(T label, int tower){
             TowersOfHanoi<T>::t3->pop();
             if (temp->getLabel() == label){
                 foundLabel = true;
-            }
-            else{
+            } else {
                 foundLabel = containsLabelt1(label, 3);
             }
             TowersOfHanoi<T>::t3->push(temp);

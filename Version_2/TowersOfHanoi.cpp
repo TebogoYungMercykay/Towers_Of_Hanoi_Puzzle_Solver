@@ -9,31 +9,26 @@ void TowersOfHanoi<T>::moveDisk(int dep, int dest){
     if (dep >= 1 && dep <=3 && dest >= 1 && dest <= 3 && dep != dest){
         if (TowersOfHanoi<T>::getTower(dep)->empty() && TowersOfHanoi<T>::getTower(dest)->empty()){
             Exception<T>::emptyStack(dep);
-        }
-        else if (TowersOfHanoi<T>::getTower(dest)->empty()){
+        } else if (TowersOfHanoi<T>::getTower(dest)->empty()){
             TowersOfHanoi<T>::getTower(dest)->push(TowersOfHanoi<T>::getTower(dep)->top());
             TowersOfHanoi<T>::getTower(dep)->pop();
             Exception<T>::movePlan(TowersOfHanoi<T>::getTower(dest)->top(),dep,dest);
-        }
-        else if (TowersOfHanoi<T>::getTower(dep)->empty()){
+        } else if (TowersOfHanoi<T>::getTower(dep)->empty()){
             TowersOfHanoi<T>::getTower(dep)->push(TowersOfHanoi<T>::getTower(dest)->top());
             TowersOfHanoi<T>::getTower(dest)->pop();
             Exception<T>::movePlan(TowersOfHanoi<T>::getTower(dest)->top(),dest,dep);
-        }
-        else{
+        } else {
             if (TowersOfHanoi<T>::getTower(dep)->top()->getLabel() < TowersOfHanoi<T>::getTower(dest)->top()->getLabel()){
                 TowersOfHanoi<T>::getTower(dest)->push(TowersOfHanoi<T>::getTower(dep)->top());
                 TowersOfHanoi<T>::getTower(dep)->pop();
                 Exception<T>::movePlan(TowersOfHanoi<T>::getTower(dest)->top(),dep,dest);
-            }
-            else{
+            } else {
                 TowersOfHanoi<T>::getTower(dep)->push(TowersOfHanoi<T>::getTower(dest)->top());
                 TowersOfHanoi<T>::getTower(dest)->pop();
                 Exception<T>::movePlan(TowersOfHanoi<T>::getTower(dep)->top(),dest,dep);
             }
         }
-    }
-    else{
+    } else {
         throw Exception<T>::incorrectDiskMove(dep,dest);
     }
 }
@@ -52,17 +47,14 @@ void TowersOfHanoi<T>::addDisk(T diskData, int tower){
     if (tower >= 1 && tower <= 3){
         if (TowersOfHanoi<T>::getTower(tower)->empty()) {
             TowersOfHanoi<T>::getTower(tower)->push(new Disk<T>(diskData));
-        }
-        else{
+        } else {
             if (diskData < TowersOfHanoi<T>::getTower(tower)->top()->getLabel()){
                 TowersOfHanoi<T>::getTower(tower)->push(new Disk<T>(diskData));
-            }
-            else{
+            } else {
                 throw Exception<T>::invalidTower(tower);
             }
         }
-    }
-    else{
+    } else {
         throw Exception<T>::invalidDiskAdd(tower, diskData);
     }
 }

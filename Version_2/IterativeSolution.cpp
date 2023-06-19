@@ -10,12 +10,10 @@ void IterativeSolution<T>::solveGame(){
         int numMoves = IterativeSolution<T>::t1->size() + IterativeSolution<T>::t2->size() + IterativeSolution<T>::t3->size();
         try{
             IterativeSolution<T>::moves((pow(2, numMoves) - 1));
-        }
-        catch(Exception<T>* e){
+        } catch(Exception<T>* e){
             throw e;
         }
-    }
-    else{
+    } else {
         throw Exception<T>::invalidGame();
     }
 }
@@ -27,38 +25,31 @@ void IterativeSolution<T>::moves(int numMoves){
     int min = pow(2,n) - 1;
     if (numMoves < 0) {
         throw Exception<T>::invalidMoves(numMoves);
-    }
-    else {
+    } else {
         if (numMoves < min) {
             min = numMoves;
         }
         if (IterativeSolution<T>::validateGame() == false) {
             throw Exception<T>::invalidGame();
-        }
-        else {
+        } else {
             int i = 1;
             for (; i <= min; ) {
                 if (i%3 == 1) {
                     if ((n % 2) == 0) {
                         IterativeSolution<T>::moveDisk(IterativeSolution<T>::startTower, (6 - aux));
-                    }
-                    else {
+                    } else {
                         IterativeSolution<T>::moveDisk(IterativeSolution<T>::startTower, IterativeSolution<T>::goalTower);
                     }
-                }
-                else if (i % 3 == 2) {
+                } else if (i % 3 == 2) {
                     if ((n % 2) == 0) {
                         IterativeSolution<T>::moveDisk(IterativeSolution<T>::startTower, IterativeSolution<T>::goalTower);
-                    }
-                    else {
+                    } else {
                         IterativeSolution<T>::moveDisk(IterativeSolution<T>::startTower, (6 - aux));
                     }
-                }
-                else if (i % 3 == 0) {
+                } else if (i % 3 == 0) {
                     if ((n % 2) == 0) {
                         IterativeSolution<T>::moveDisk((6 - aux), IterativeSolution<T>::goalTower);
-                    }
-                    else {
+                    } else {
                         IterativeSolution<T>::moveDisk(IterativeSolution<T>::goalTower, (6 - aux));
                     }
                 }
