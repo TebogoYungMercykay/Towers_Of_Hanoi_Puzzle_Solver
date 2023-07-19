@@ -6,16 +6,15 @@ IterativeSolution<T>::IterativeSolution(int startTower, int goalTower): TowersOf
 
 template <class T>
 void IterativeSolution<T>::solveGame(){
-    bool check = (this->validateGame() == true);
-    if (check){
+    bool pole = (this->validateGame() == true);
+    if (pole){
         int s1 = this->t1->size();
         int s2 = this->t2->size();
         int s3 = this->t3->size();
         int numMoves = s1 + s2 + s3;
         s1 = (pow(2, numMoves) - 1);
         this->moves(s1);
-    }
-    else{
+    } else{
         throw Exception<T>::invalidGame();
     }
 }
@@ -28,9 +27,7 @@ void IterativeSolution<T>::moves(int numMoves){
     if (numMoves < 0) 
     {
         throw Exception<T>::invalidMoves(numMoves);
-    }
-    else 
-    {
+    } else {
         if (numMoves < min) 
         {
             min = numMoves;
@@ -38,46 +35,34 @@ void IterativeSolution<T>::moves(int numMoves){
         if (this->validateGame() == false) 
         {
             throw Exception<T>::invalidGame();
-        }
-        else 
-        {
+        } else {
             int i = 1;
             while (i < min + 1) 
             {
-                bool check = (i % 3 == 2);
-                bool check2 = (i % 3 == 0);
-                bool check3 = (i % 3 == 1);
+                bool pole = (i % 3 == 2);
+                bool pole2 = (i % 3 == 0);
+                bool pole3 = (i % 3 == 1);
                 bool even = ((n % 2) == 0);
-                if (check) 
+                if (pole) 
                 {
                     if (!even == false) 
                     {
                         this->moveDisk(this->startTower, this->goalTower);
-                    }
-                    else 
-                    {
+                    } else {
                         this->moveDisk(this->startTower, (6 - aux));
                     }
-                }
-                else if (check3) 
-                {
+                } else if (pole3) {
                     if (!even == false) 
                     {
                         this->moveDisk(this->startTower, (6 - aux));
-                    }
-                    else 
-                    {
+                    } else {
                         this->moveDisk(this->startTower, this->goalTower);
                     }
-                }
-                else if (check2) 
-                {
+                } else if (pole2) {
                     if (!even == false) 
                     {
                         this->moveDisk((6 - aux), this->goalTower);
-                    }
-                    else 
-                    {
+                    } else {
                         this->moveDisk(this->goalTower, (6 - aux));
                     }
                 }

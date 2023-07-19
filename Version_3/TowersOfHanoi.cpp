@@ -16,38 +16,28 @@ void TowersOfHanoi<T>::moveDisk(int dep, int dest)
         if (check1)
         {
             Exception<T>::emptyStack(dep);
-        }
-        else if (check3)
-        {
+        } else if (check3) {
             this->getTower(dep)->push(this->getTower(dest)->top());
             this->getTower(dest)->pop();
             Exception<T>::movePlan(this->getTower(dest)->top(),dest,dep);
-        }
-        else if (check2)
-        {
+        } else if (check2) {
             this->getTower(dest)->push(this->getTower(dep)->top());
             this->getTower(dep)->pop();
             Exception<T>::movePlan(this->getTower(dest)->top(),dep,dest);
-        }
-        else
-        {
+        } else {
             check3 = (this->getTower(dep)->top()->getLabel() < this->getTower(dest)->top()->getLabel());
             if (!check3)
             {
                 this->getTower(dep)->push(this->getTower(dest)->top());
                 this->getTower(dest)->pop();
                 Exception<T>::movePlan(this->getTower(dep)->top(),dest,dep);
-            }
-            else
-            {
+            } else {
                 this->getTower(dest)->push(this->getTower(dep)->top());
                 this->getTower(dep)->pop();
                 Exception<T>::movePlan(this->getTower(dest)->top(),dep,dest);
             }
         }
-    }
-    else
-    {
+    } else {
         throw Exception<T>::incorrectDiskMove(dep,dest);
     }
 }
@@ -70,22 +60,16 @@ void TowersOfHanoi<T>::addDisk(T diskData, int tower)
     {
         if (this->getTower(tower)->empty()) {
             this->getTower(tower)->push(new Disk<T>(diskData));
-        }
-        else
-        {
+        } else {
             check = (diskData < this->getTower(tower)->top()->getLabel()) == true;
             if (check)
             {
                 this->getTower(tower)->push(new Disk<T>(diskData));
-            }
-            else
-            {
+            } else {
                 throw Exception<T>::invalidTower(tower);
             }
         }
-    }
-    else
-    {
+    } else {
         throw Exception<T>::invalidDiskAdd(tower, diskData);
     }
 }
